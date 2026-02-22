@@ -260,10 +260,33 @@ section:nth-child(even) {
   margin-bottom: 2rem;
 }
 
-.report-card img {
+.report-img-link {
+  display: block;
+  flex-shrink: 0;
+}
+
+.report-img-link img {
   width: 100%;
   border-radius: 4px;
   border: 1px solid var(--border);
+  transition: opacity .2s, box-shadow .2s;
+}
+
+.report-img-link:hover img {
+  opacity: .85;
+  box-shadow: 0 4px 14px rgba(0,0,0,.18);
+}
+
+.report-title-link {
+  color: var(--navy);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color .2s, border-color .2s;
+}
+
+.report-title-link:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
 }
 
 .report-card h3 {
