@@ -15,12 +15,17 @@
 
 html { scroll-behavior: smooth; }
 
+/* ── 3. Typography: Lora + Inter from Google Fonts ── */
 body {
-  font-family: 'Georgia', serif;
+  font-family: 'Lora', Georgia, serif;
   color: var(--text);
   background: var(--white);
-  line-height: 1.7;
+  line-height: 1.75;
   font-size: 16px;
+}
+
+h1, h2, h3 {
+  font-family: 'Inter', Arial, sans-serif;
 }
 
 /* ── Navigation ── */
@@ -39,8 +44,9 @@ nav {
 
 nav .brand {
   color: var(--white);
+  font-family: 'Inter', Arial, sans-serif;
   font-size: 1.05rem;
-  font-weight: bold;
+  font-weight: 700;
   letter-spacing: .03em;
   text-decoration: none;
 }
@@ -48,24 +54,30 @@ nav .brand {
 nav ul {
   list-style: none;
   display: flex;
-  gap: 2rem;
+  gap: .4rem;
 }
 
+/* ── 9. Pill-style active nav highlight ── */
 nav ul a {
-  color: rgba(255,255,255,.85);
+  color: rgba(255,255,255,.8);
   text-decoration: none;
-  font-family: 'Arial', sans-serif;
-  font-size: .9rem;
-  letter-spacing: .04em;
-  padding-bottom: 2px;
-  border-bottom: 2px solid transparent;
-  transition: color .2s, border-color .2s;
+  font-family: 'Inter', Arial, sans-serif;
+  font-size: .85rem;
+  font-weight: 500;
+  letter-spacing: .03em;
+  padding: .3rem .85rem;
+  border-radius: 999px;
+  transition: background .2s, color .2s;
 }
 
-nav ul a:hover,
+nav ul a:hover {
+  color: var(--white);
+  background: rgba(255,255,255,.12);
+}
+
 nav ul a.active {
   color: var(--white);
-  border-bottom-color: var(--accent);
+  background: var(--accent);
 }
 
 /* ── Nav social icons ── */
@@ -105,7 +117,7 @@ section:nth-child(even) {
 
 /* ── Section headings ── */
 .section-title {
-  font-family: 'Arial', sans-serif;
+  font-family: 'Inter', Arial, sans-serif;
   font-size: 1.6rem;
   font-weight: 700;
   color: var(--navy);
@@ -115,34 +127,53 @@ section:nth-child(even) {
   display: inline-block;
 }
 
-/* ── HOME ── */
+/* ── 2. Fade-in on scroll ── */
+.fade-in {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity .55s ease, transform .55s ease;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── 1. HOME hero ── */
+#home {
+  background: linear-gradient(135deg, #1a2c4e 0%, #2c5282 55%, #2b6cb0 100%);
+  padding: 6rem 2rem;
+}
+
 .home-grid {
   display: grid;
-  grid-template-columns: 1fr 220px;
+  grid-template-columns: 1fr 280px;
   gap: 3rem;
   align-items: start;
 }
 
 .home-text h1 {
-  font-size: 2rem;
-  color: var(--navy);
-  margin-bottom: .25rem;
+  font-size: 2.3rem;
+  color: var(--white);
+  margin-bottom: .3rem;
+  font-weight: 700;
 }
 
 .home-text .title-line {
-  font-family: 'Arial', sans-serif;
-  color: var(--accent);
-  font-size: 1rem;
-  margin-bottom: 1.5rem;
+  font-family: 'Inter', Arial, sans-serif;
+  color: rgba(255,255,255,.75);
+  font-size: .95rem;
+  margin-bottom: 1.6rem;
+  font-weight: 400;
 }
 
 .home-text p {
   margin-bottom: 1rem;
   text-align: justify;
+  color: rgba(255,255,255,.9);
 }
 
 .home-links {
-  margin-top: 1.5rem;
+  margin-top: 1.8rem;
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
@@ -150,36 +181,40 @@ section:nth-child(even) {
 
 .btn {
   display: inline-block;
-  padding: .45rem 1.1rem;
-  border-radius: 4px;
-  font-family: 'Arial', sans-serif;
+  padding: .5rem 1.25rem;
+  border-radius: 6px;
+  font-family: 'Inter', Arial, sans-serif;
   font-size: .85rem;
+  font-weight: 600;
   text-decoration: none;
-  transition: background .2s, color .2s;
+  transition: background .2s, color .2s, transform .15s;
 }
+
+.btn:hover { transform: translateY(-1px); }
 
 .btn-primary {
-  background: var(--accent);
-  color: var(--white);
+  background: var(--white);
+  color: var(--navy);
 }
 
-.btn-primary:hover { background: var(--blue); }
+.btn-primary:hover { background: #e8f0fe; }
 
 .btn-outline {
-  border: 2px solid var(--accent);
-  color: var(--accent);
+  border: 2px solid rgba(255,255,255,.7);
+  color: var(--white);
 }
 
 .btn-outline:hover {
-  background: var(--accent);
-  color: var(--white);
+  background: rgba(255,255,255,.15);
+  border-color: var(--white);
 }
 
 .profile-photo {
   width: 100%;
-  border-radius: 6px;
-  box-shadow: 0 4px 16px rgba(0,0,0,.15);
+  border-radius: 8px;
+  box-shadow: 0 8px 28px rgba(0,0,0,.35);
   display: block;
+  border: 3px solid rgba(255,255,255,.2);
 }
 
 /* ── RESEARCH ── */
@@ -188,11 +223,11 @@ section:nth-child(even) {
 }
 
 .research-subsection h3 {
-  font-family: 'Arial', sans-serif;
-  font-size: 1rem;
+  font-family: 'Inter', Arial, sans-serif;
+  font-size: .85rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: .08em;
+  letter-spacing: .1em;
   color: var(--muted);
   margin-bottom: 1.2rem;
 }
@@ -208,13 +243,14 @@ section:nth-child(even) {
   padding: 1rem 1.25rem;
   background: var(--white);
   border-left: 4px solid var(--accent);
-  border-radius: 0 4px 4px 0;
-  box-shadow: 0 1px 4px rgba(0,0,0,.06);
+  border-radius: 0 6px 6px 0;
+  box-shadow: 0 1px 5px rgba(0,0,0,.07);
   font-size: .95rem;
 }
 
 .pub-list li em {
   color: var(--blue);
+  font-style: italic;
 }
 
 /* ── Publication links ── */
@@ -222,22 +258,22 @@ section:nth-child(even) {
   display: flex;
   flex-wrap: wrap;
   gap: .5rem;
-  margin-top: .6rem;
+  margin-top: .65rem;
 }
 
 .pub-links a {
   display: inline-flex;
   align-items: center;
   gap: .3rem;
-  font-family: 'Arial', sans-serif;
-  font-size: .78rem;
+  font-family: 'Inter', Arial, sans-serif;
+  font-size: .75rem;
   font-weight: 600;
   text-decoration: none;
   color: var(--accent);
   background: rgba(49,130,206,.08);
   border: 1px solid rgba(49,130,206,.3);
-  border-radius: 3px;
-  padding: .2rem .55rem;
+  border-radius: 4px;
+  padding: .22rem .6rem;
   transition: background .2s, color .2s;
 }
 
@@ -247,6 +283,61 @@ section:nth-child(even) {
   border-color: var(--accent);
 }
 
+/* ── 7. Abstract toggle ── */
+.abstract-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: .3rem;
+  font-family: 'Inter', Arial, sans-serif;
+  font-size: .75rem;
+  font-weight: 600;
+  color: var(--muted);
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: .22rem .6rem;
+  cursor: pointer;
+  transition: color .2s, border-color .2s, background .2s;
+  margin-top: .65rem;
+}
+
+.abstract-toggle:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: rgba(49,130,206,.06);
+}
+
+.abstract-toggle .toggle-icon {
+  font-size: .65rem;
+  transition: transform .25s;
+}
+
+.abstract-toggle[aria-expanded="true"] .toggle-icon {
+  transform: rotate(180deg);
+}
+
+.abstract-body {
+  display: none;
+  margin-top: .75rem;
+  padding: .75rem 1rem;
+  background: var(--light);
+  border-radius: 4px;
+  font-size: .88rem;
+  color: var(--text);
+  line-height: 1.7;
+  border-left: 3px solid var(--border);
+}
+
+.abstract-body.open {
+  display: block;
+  animation: slideDown .25s ease;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
 /* ── POLICY REPORTS ── */
 .report-card {
   display: grid;
@@ -254,8 +345,8 @@ section:nth-child(even) {
   gap: 2rem;
   align-items: start;
   background: var(--white);
-  border-radius: 6px;
-  box-shadow: 0 2px 10px rgba(0,0,0,.08);
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0,0,0,.08);
   padding: 1.75rem;
   margin-bottom: 2rem;
 }
@@ -267,14 +358,15 @@ section:nth-child(even) {
 
 .report-img-link img {
   width: 100%;
-  border-radius: 4px;
+  border-radius: 5px;
   border: 1px solid var(--border);
-  transition: opacity .2s, box-shadow .2s;
+  transition: opacity .2s, box-shadow .2s, transform .2s;
 }
 
 .report-img-link:hover img {
-  opacity: .85;
-  box-shadow: 0 4px 14px rgba(0,0,0,.18);
+  opacity: .88;
+  box-shadow: 0 6px 18px rgba(0,0,0,.18);
+  transform: translateY(-2px);
 }
 
 .report-title-link {
@@ -293,12 +385,12 @@ section:nth-child(even) {
   font-size: 1.05rem;
   color: var(--navy);
   margin-bottom: .5rem;
-  line-height: 1.4;
+  line-height: 1.45;
 }
 
 .report-card .report-meta {
-  font-family: 'Arial', sans-serif;
-  font-size: .8rem;
+  font-family: 'Inter', Arial, sans-serif;
+  font-size: .78rem;
   color: var(--muted);
   margin-bottom: .75rem;
   text-transform: uppercase;
@@ -313,14 +405,47 @@ section:nth-child(even) {
 /* ── Footer ── */
 footer {
   background: var(--navy);
-  color: rgba(255,255,255,.6);
+  color: rgba(255,255,255,.55);
   text-align: center;
   padding: 1.5rem;
-  font-family: 'Arial', sans-serif;
+  font-family: 'Inter', Arial, sans-serif;
   font-size: .8rem;
 }
 
 footer a { color: rgba(255,255,255,.75); }
+
+/* ── 8. Back-to-top button ── */
+#back-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--white);
+  border: none;
+  cursor: pointer;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 3px 12px rgba(0,0,0,.25);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .3s, transform .3s, background .2s;
+  z-index: 200;
+}
+
+#back-to-top.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+#back-to-top:hover {
+  background: var(--blue);
+  transform: translateY(-3px);
+}
 
 /* ── Responsive ── */
 @media (max-width: 680px) {
@@ -328,10 +453,13 @@ footer a { color: rgba(255,255,255,.75); }
     grid-template-columns: 1fr;
   }
   .home-grid .profile-photo {
-    max-width: 180px;
+    max-width: 160px;
     order: -1;
+    margin: 0 auto;
   }
   .report-card {
     grid-template-columns: 1fr;
   }
+  nav ul { gap: .2rem; }
+  nav ul a { font-size: .78rem; padding: .25rem .6rem; }
 }
