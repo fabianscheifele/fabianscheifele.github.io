@@ -101,6 +101,37 @@ nav ul a.active {
   transform: translateY(-2px);
 }
 
+/* ── Hamburger toggle (desktop: hidden) ── */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: .4rem .5rem;
+  margin-left: auto;
+  border-radius: 6px;
+  transition: background .2s;
+}
+
+.nav-toggle:hover { background: rgba(255,255,255,.12); }
+
+.hamburger-bar {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--white);
+  border-radius: 2px;
+  transform-origin: center;
+  transition: transform .3s, opacity .2s;
+}
+
+nav.nav-open .hamburger-bar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+nav.nav-open .hamburger-bar:nth-child(2) { opacity: 0; transform: scaleX(0); }
+nav.nav-open .hamburger-bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
 /* ── Sections ── */
 section {
   padding: 5rem 2rem;
@@ -449,17 +480,116 @@ footer a { color: rgba(255,255,255,.75); }
 
 /* ── Responsive ── */
 @media (max-width: 680px) {
+
+  /* Navigation */
+  nav {
+    flex-wrap: wrap;
+    height: auto;
+    min-height: 56px;
+    padding: .65rem 1.25rem;
+    justify-content: flex-start;
+    gap: 0;
+  }
+
+  nav .brand {
+    padding: .2rem 0;
+  }
+
+  .nav-toggle {
+    display: flex;
+  }
+
+  nav ul {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    gap: .2rem;
+    padding: .5rem 0 .6rem;
+    order: 3;
+  }
+
+  nav.nav-open ul {
+    display: flex;
+  }
+
+  nav ul li {
+    width: 100%;
+  }
+
+  nav ul a {
+    display: block;
+    font-size: 1rem;
+    padding: .65rem .75rem;
+    border-radius: 6px;
+  }
+
+  .nav-icons {
+    display: none;
+    order: 4;
+    width: 100%;
+    justify-content: center;
+    gap: 1.75rem;
+    padding: .65rem 0 .5rem;
+    border-top: 1px solid rgba(255,255,255,.12);
+  }
+
+  nav.nav-open .nav-icons {
+    display: flex;
+  }
+
+  .nav-icons a {
+    font-size: 1.3rem;
+  }
+
+  /* Sections */
+  section {
+    padding: 3rem 1.25rem;
+  }
+
+  /* Home */
+  #home {
+    padding: 3.5rem 1.25rem;
+  }
+
   .home-grid {
     grid-template-columns: 1fr;
+    gap: 1.75rem;
   }
+
+  .home-text h1 {
+    font-size: 1.85rem;
+  }
+
+  .home-text p {
+    text-align: left;
+  }
+
   .home-grid .profile-photo {
-    max-width: 160px;
+    max-width: 150px;
     order: -1;
     margin: 0 auto;
   }
+
+  /* Publication links and abstract toggle — larger touch targets */
+  .pub-links a,
+  .abstract-toggle {
+    font-size: .82rem;
+    padding: .35rem .75rem;
+  }
+
+  /* Report cards */
   .report-card {
     grid-template-columns: 1fr;
+    padding: 1.25rem;
   }
-  nav ul { gap: .2rem; }
-  nav ul a { font-size: .78rem; padding: .25rem .6rem; }
+
+  .report-card p {
+    text-align: left;
+  }
+
+  /* Back-to-top */
+  #back-to-top {
+    bottom: 1.25rem;
+    right: 1.25rem;
+  }
 }
