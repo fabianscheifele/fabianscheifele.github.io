@@ -6,7 +6,8 @@
       "Bash(python3:*)",
       "Bash(where:*)",
       "Bash(node --version:*)",
-      "Bash(powershell:*)"
+      "Bash(powershell:*)",
+      "Bash(start \"C:\\\\Users\\\\fabi-\\\\Documents\\\\GitHub\\\\website\\\\index.html\")"
     ]
   }
 }

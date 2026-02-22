@@ -68,6 +68,27 @@ nav ul a.active {
   border-bottom-color: var(--accent);
 }
 
+/* ── Nav social icons ── */
+.nav-icons {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nav-icons a {
+  color: rgba(255,255,255,.75);
+  font-size: 1.05rem;
+  text-decoration: none;
+  transition: color .2s, transform .2s;
+  display: flex;
+  align-items: center;
+}
+
+.nav-icons a:hover {
+  color: var(--white);
+  transform: translateY(-2px);
+}
+
 /* ── Sections ── */
 section {
   padding: 5rem 2rem;
@@ -194,6 +215,36 @@ section:nth-child(even) {
 
 .pub-list li em {
   color: var(--blue);
+}
+
+/* ── Publication links ── */
+.pub-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  margin-top: .6rem;
+}
+
+.pub-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: .3rem;
+  font-family: 'Arial', sans-serif;
+  font-size: .78rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--accent);
+  background: rgba(49,130,206,.08);
+  border: 1px solid rgba(49,130,206,.3);
+  border-radius: 3px;
+  padding: .2rem .55rem;
+  transition: background .2s, color .2s;
+}
+
+.pub-links a:hover {
+  background: var(--accent);
+  color: var(--white);
+  border-color: var(--accent);
 }
 
 /* ── POLICY REPORTS ── */
