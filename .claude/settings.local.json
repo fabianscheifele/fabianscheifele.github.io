@@ -7,7 +7,10 @@
       "Bash(where:*)",
       "Bash(node --version:*)",
       "Bash(powershell:*)",
-      "Bash(start \"C:\\\\Users\\\\fabi-\\\\Documents\\\\GitHub\\\\website\\\\index.html\")"
+      "Bash(start \"C:\\\\Users\\\\fabi-\\\\Documents\\\\GitHub\\\\website\\\\index.html\")",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push)"
     ]
   }
 }
