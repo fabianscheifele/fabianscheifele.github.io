@@ -1,0 +1,18 @@
+# Word documents (contain metadata)
+*.docx
+*.doc
+
+# Excel/PowerPoint
+*.xlsx
+*.pptx
+
+# Private CV versions
+*CV-1*
+*_private*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Claude settings
+.claude/
